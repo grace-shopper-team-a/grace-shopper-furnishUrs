@@ -7,7 +7,7 @@ const Cart = db.define('Cart', {
     allowNull: true
   },
   products: {
-    type: Sequelize.ARRAY(Sequelize.JSON),
+    type: Sequelize.JSON,
     defaultValue: []
   },
   totalPrice: {
