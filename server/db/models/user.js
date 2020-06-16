@@ -1,19 +1,34 @@
-const crypto = require('crypto')
+
 const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  name : {
+    type : Sequelize.STRING,
+    allowNull : false,
+    validate : {
+      notEmpty : true 
+    }
+  },
+
   email: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
+    validate : {
+      isEmail : true 
+    }
   },
+
   password: {
     type: Sequelize.STRING,
     // Making `.password` act like a func hides it when serializing to JSON.
     // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
       return () => this.getDataValue('password')
+    },
+    validate : {
+      notEmpty : true 
     }
   },
   salt: {
@@ -26,6 +41,9 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  address : {
+    type : Sequelize.TEXT
   }
 })
 
@@ -35,7 +53,7 @@ module.exports = User
  * instanceMethods
  */
 User.prototype.correctPassword = function(candidatePwd) {
-  return User.encryptPassword(candidatePwd, this.salt()) === this.password()
+return User.encryptPassword(candidatePwd, this.salt()) === this.password()
 }
 
 /**
