@@ -1,13 +1,20 @@
-const crypto = require('crypto')
+
 const Sequelize = require('sequelize')
 const db = require('../db')
 
+
 const User = db.define('user', {
+  name : {
+    type : Sequelize.STRING,
+    allowNull : false 
+  },
+
   email: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false
   },
+
   password: {
     type: Sequelize.STRING,
     // Making `.password` act like a func hides it when serializing to JSON.
@@ -26,6 +33,9 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  address : {
+    type : Sequelize.TEXT
   }
 })
 
@@ -35,7 +45,7 @@ module.exports = User
  * instanceMethods
  */
 User.prototype.correctPassword = function(candidatePwd) {
-  return User.encryptPassword(candidatePwd, this.salt()) === this.password()
+return User.encryptPassword(candidatePwd, this.salt()) === this.password()
 }
 
 /**
