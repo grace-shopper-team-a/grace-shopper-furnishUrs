@@ -1,13 +1,13 @@
-
+const crypto = require('crypto')
 const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
-  name : {
-    type : Sequelize.STRING,
-    allowNull : false,
-    validate : {
-      notEmpty : true 
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
     }
   },
 
@@ -15,8 +15,8 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
-    validate : {
-      isEmail : true 
+    validate: {
+      isEmail: true
     }
   },
 
@@ -27,8 +27,8 @@ const User = db.define('user', {
     get() {
       return () => this.getDataValue('password')
     },
-    validate : {
-      notEmpty : true 
+    validate: {
+      notEmpty: true
     }
   },
   salt: {
@@ -42,8 +42,8 @@ const User = db.define('user', {
   googleId: {
     type: Sequelize.STRING
   },
-  address : {
-    type : Sequelize.TEXT
+  address: {
+    type: Sequelize.TEXT
   }
 })
 
@@ -53,7 +53,7 @@ module.exports = User
  * instanceMethods
  */
 User.prototype.correctPassword = function(candidatePwd) {
-return User.encryptPassword(candidatePwd, this.salt()) === this.password()
+  return User.encryptPassword(candidatePwd, this.salt()) === this.password()
 }
 
 /**
@@ -87,6 +87,4 @@ User.beforeBulkCreate(users => {
   users.forEach(setSaltAndPassword)
 })
 
-
-
-// ok // 
+// ok //
