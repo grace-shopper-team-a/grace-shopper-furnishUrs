@@ -2,17 +2,22 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-
 const User = db.define('user', {
   name : {
     type : Sequelize.STRING,
-    allowNull : false 
+    allowNull : false,
+    validate : {
+      notEmpty : true 
+    }
   },
 
   email: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
+    validate : {
+      isEmail : true 
+    }
   },
 
   password: {
@@ -21,6 +26,9 @@ const User = db.define('user', {
     // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
       return () => this.getDataValue('password')
+    },
+    validate : {
+      notEmpty : true 
     }
   },
   salt: {
