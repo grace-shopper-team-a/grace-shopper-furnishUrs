@@ -14,7 +14,7 @@ async function seed() {
   })
 
   await Product.create({
-    title: 'Oak Chair',
+    name: 'Oak Chair',
     description: 'A premium chair made from oak wood. Strong and sturdy',
     price: 250.0,
     quantity: 100,
