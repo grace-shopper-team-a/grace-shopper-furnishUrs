@@ -7,7 +7,7 @@ const Cart = db.define('Cart', {
     allowNull: true
   },
   products: {
-    type: Sequelize.ARRAY(Sequelize.TEXT),
+    type: Sequelize.ARRAY(Sequelize.JSON),
     defaultValue: []
   },
   totalPrice: {
@@ -19,6 +19,13 @@ const Cart = db.define('Cart', {
     allowNull: false,
     defaultValue: false
   }
+})
+
+Cart.beforeValidate(cart => {
+  cart.totalPrice = 0
+  cart.products.forEach(product => {
+    cart.totalPrice += product.price * product.quantity
+  })
 })
 
 module.exports = Cart
