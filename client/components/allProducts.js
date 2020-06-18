@@ -3,17 +3,41 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
+import CheckoutForm from './checkoutForm'
 
 export class AllProducts extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      showCheckout: false
+    }
+    this.displayCheckout = this.displayCheckout.bind(this)
+  }
   componentDidMount() {
     this.props.fetchProducts()
   }
 
+  displayCheckout() {
+    this.setState({
+      showCheckout: true
+    })
+  }
+
   render() {
     const products = this.props.products
-    console.log('products', products)
+    // console.log('products', products)
     return (
       <div id="all-products">
+        <Link to="/checkout">
+          <button
+            type="submit"
+            id="checkout-button"
+            onClick={this.displayCheckout}
+          >
+            Checkout
+          </button>
+          {this.state.showCheckout ? <CheckoutForm /> : null}
+        </Link>
         <h1> All Products : Chairs </h1>
 
         {products.map(product => (

@@ -35,8 +35,27 @@ form div {
   margin-bottom: 10px;
   text-align: center;
 }
+
 #single-product-button {
   background-color: lightseagreen;
   color: white;
   padding: 10px;
+}
+
+#checkout-button {
+  background-color: lightseagreen;
+  color: white;
+  padding: 10px;
+}
+
+#checkout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  border: 2px solid black;
+  width: 600px;
+  padding-bottom: 50px;
+  margin-bottom: 10px;
 }

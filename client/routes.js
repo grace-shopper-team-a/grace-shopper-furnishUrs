@@ -12,6 +12,7 @@ import {Login, Signup, UserHome, AllProducts} from './components'
 import {me} from './store'
 import ConnectedSingleProduct from './components/single-product'
 import NotFound from './components/not-found'
+import ConnectedCheckoutForm from './components/checkoutForm'
 
 /**
  * COMPONENT
@@ -30,7 +31,12 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/products" component={AllProducts} />
-        <Route exact path="/products/:productId" component={ConnectedSingleProduct} />
+        <Route
+          exact
+          path="/products/:productId"
+          component={ConnectedSingleProduct}
+        />
+        <Route path="/checkout" component={ConnectedCheckoutForm} />
         <Route path="/404" component={NotFound} />
 
         {isLoggedIn && (
