@@ -13,12 +13,15 @@ export class SingleProduct extends React.Component {
     const {product} = this.props
     console.log(product)
 
-    return <DisplayProduct product={product} />
+    return <DisplayProduct product={product} userId={this.props.userId} />
   }
 }
 
 const mapToState = state => {
-  return {product: state.singleProduct}
+  return {
+    product: state.singleProduct,
+    userId: state.user.id
+  }
 }
 
 const mapToDispatch = dispatch => ({
