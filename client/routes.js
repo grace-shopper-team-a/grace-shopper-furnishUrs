@@ -19,6 +19,15 @@ import NotFound from './components/not-found'
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
+
+    if (!this.props.isLoggedIn) {
+      if (!window.localStorage.getItem('guest-cart')) {
+        window.localStorage.setItem(
+          'guest-cart',
+          JSON.stringify({products: [], totalPrice: 0})
+        )
+      }
+    }
   }
 
   render() {
@@ -30,7 +39,11 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/products" component={AllProducts} />
-        <Route exact path="/products/:productId" component={ConnectedSingleProduct} />
+        <Route
+          exact
+          path="/products/:productId"
+          component={ConnectedSingleProduct}
+        />
         <Route path="/404" component={NotFound} />
 
         {isLoggedIn && (
