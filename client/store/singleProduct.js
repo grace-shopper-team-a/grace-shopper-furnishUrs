@@ -24,10 +24,10 @@ const getSingleProduct = product => ({
 export const fetchSingleProduct = productId => {
   return async function(dispatch) {
     try {
-      const {data} = await axios.get(`/products/${productId}`)
+      const {data} = await axios.get(`/api/products/${productId}`)
       dispatch(getSingleProduct(data))
     } catch (err) {
-      console.log(err)
+      window.location = '/404'
     }
   }
 }
