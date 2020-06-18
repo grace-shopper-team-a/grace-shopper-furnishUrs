@@ -19,3 +19,24 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#all-products {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+}
+
+#single-product {
+  border: 2px solid black;
+  width: 600px;
+  padding-bottom: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#single-product-button {
+  background-color: lightseagreen;
+  color: white;
+  padding: 10px;
+}
