@@ -7,7 +7,8 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome} from './components'
+import {Login, Signup, UserHome, AllProducts} from './components'
+// import { allProducts } from './components/allProducts.js'
 import {me} from './store'
 import ConnectedSingleProduct from './components/single-product'
 import NotFound from './components/not-found'
@@ -28,12 +29,10 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route exact path="/products" component={AllProducts} />
+        <Route exact path="/products/:productId" component={ConnectedSingleProduct} />
         <Route path="/404" component={NotFound} />
-        <Route
-          exact
-          path="/products/:productId"
-          component={ConnectedSingleProduct}
-        />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
