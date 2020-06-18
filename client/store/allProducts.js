@@ -21,8 +21,8 @@ export default function productsReducer(state = initialState, action) {
   console.log('action', action)
   switch (action.type) {
     case GET_PRODUCTS:
-      return [...state, ...action.products]
-
+      // return [...state, ...action.products]
+      return [...action.products]
     default:
       return state
   }

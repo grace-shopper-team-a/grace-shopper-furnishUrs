@@ -37,7 +37,7 @@ const arrayOfProducts = [
     description: 'Etiam egestas elit lectus, at elementum neque elementum at',
     price: 300,
     quantity: 100,
-    category: 'chair',
+    category: 'bed',
     imageUrl:
       'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
   },
@@ -46,7 +46,7 @@ const arrayOfProducts = [
     description: 'Pellentesque quis facilisis lacus',
     price: 50,
     quantity: 100,
-    category: 'chair',
+    category: 'bed',
     imageUrl:
       'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
   },
@@ -112,7 +112,7 @@ const arrayOfProducts = [
     description: 'Maecenas mattis consequat lacus nec tincidunt',
     price: 110,
     quantity: 100,
-    category: 'couch',
+    category: 'drawers',
     imageUrl:
       'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
   },
@@ -131,7 +131,7 @@ const arrayOfProducts = [
       'Vestibulum porta, sem id auctor auctor, erat lorem tempus nunc',
     price: 85,
     quantity: 100,
-    category: 'couch',
+    category: 'drawers',
     imageUrl:
       'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
   },
