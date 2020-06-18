@@ -16,7 +16,7 @@ router.get('/:productId', async (req, res, next) => {
     const id = req.params.productId
     const product = await Product.findByPk(id)
     if (product) res.status(200).json(product)
-    else res.sendStatus(404)
+    else res.status(404).send('<h1>PAGE NOT FOUND</h1>')
   } catch (error) {
     next(error)
   }
