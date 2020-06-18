@@ -6,7 +6,8 @@ router.get('/:relatedUserId', async (req, res) => {
   try {
     const requestedCart = await Cart.findOne({
       where: {
-        userId: req.params.relatedUserId
+        userId: req.params.relatedUserId,
+        checkedOut: false
       }
     })
     res.json(requestedCart)

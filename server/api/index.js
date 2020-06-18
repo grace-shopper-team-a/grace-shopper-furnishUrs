@@ -3,7 +3,7 @@ module.exports = router
 
 router.use('/users', require('./users'))
 router.use('/products', require('./products'))
-
+router.use('/cartedproducts', require('./cartedProducts'))
 router.use('/carts', require('./carts'))
 
 router.use((req, res, next) => {
