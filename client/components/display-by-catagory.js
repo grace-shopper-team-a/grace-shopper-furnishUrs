@@ -23,19 +23,6 @@ export class ProductByCategory extends React.Component {
     return (
       <div id="all-products">
         <h1> Catagory : {category[0].toUpperCase() + category.slice(1)} </h1>
-
-        {/* {products.map(product => (
-          <div key={product.id} id="single-product">
-            <Link to={`/products/${product.id}`}>
-              <h1> {product.name} </h1>
-              <p>{product.category}</p>
-              <img src={product.imageUrl} />
-            </Link>
-            <p> Description : {product.description}</p>
-            <h3> Price : ${product.price} </h3>
-            <button id="single-product-button"> Add To Cart </button>
-          </div>
-        ))} */}
         {products.map(product => {
           if (product.category === category) {
             return (
