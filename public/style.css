@@ -97,3 +97,27 @@ li:hover {
   right: 6px;
   top: 18px;
 }
+
+/* 
+Checkout Styling  */
+#checkout-item {
+  display: flex;
+  width: 500px;
+  border: 2px solid;
+  margin-bottom: 10px;
+}
+
+#quantity {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+}
+
+#shopping-cart {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  padding-bottom: 50px;
+}

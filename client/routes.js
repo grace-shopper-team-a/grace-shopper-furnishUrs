@@ -12,7 +12,8 @@ import {
   Signup,
   UserHome,
   ConnectedAllProducts,
-  DisplayByCatagory
+  DisplayByCatagory,
+  Cart
 } from './components'
 import {me} from './store'
 import ConnectedSingleProduct from './components/single-product'
@@ -41,6 +42,7 @@ class Routes extends Component {
         <Route path="/bed" component={DisplayByCatagory} />
         <Route path="/drawers" component={DisplayByCatagory} />
         <Route exact path="/" component={ConnectedAllProducts} />
+        <Route path="/cart" component={Cart} />
 
         <Route
           exact
