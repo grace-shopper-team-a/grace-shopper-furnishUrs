@@ -7,5 +7,7 @@
  */
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
-export {default as AllProducts} from './allProducts.js'
+export {default as ConnectedAllProducts} from './allProducts'
 export {Login, Signup} from './auth-form'
+export {default as DisplayByCatagory} from './display-by-catagory.js'
+export {default as Cart} from './cart'

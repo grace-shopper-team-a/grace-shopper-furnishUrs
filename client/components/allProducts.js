@@ -38,12 +38,13 @@ export class AllProducts extends React.Component {
           </button>
           {this.state.showCheckout ? <CheckoutForm /> : null}
         </Link>
-        <h1> All Products : Chairs </h1>
 
+        <h1> Welcome to FurnishUrs! </h1>
         {products.map(product => (
           <div key={product.id} id="single-product">
             <Link to={`/products/${product.id}`}>
               <h1> {product.name} </h1>
+              <p>{product.category}</p>
               <img src={product.imageUrl} />
             </Link>
             <p> Description : {product.description}</p>

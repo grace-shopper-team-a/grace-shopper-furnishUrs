@@ -29,7 +29,7 @@ export class CheckoutForm extends React.Component {
 
   checkoutUpdate() {
     this.props.updateCheckout()
-    alert('thank you')
+    // alert('thank you')
   }
 
   // async componentDidMount() {
@@ -77,7 +77,11 @@ export class CheckoutForm extends React.Component {
               value={this.state.phoneNumber}
             />
           </label>
-          <button type="submit" onClick={this.checkoutUpdate}>
+          <button
+            id="checkout-button"
+            type="submit"
+            onClick={this.checkoutUpdate}
+          >
             Checkout Cart
           </button>
         </form>

@@ -10,8 +10,8 @@ const initialState = []
 const getCheckout = product => ({type: CHECKOUT, product})
 
 //thunk creator
-export const updateCheckout = () => async dispatch => {
-  const res = await axios.put('/api/', {checkedOut: true})
+export const updateCheckout = userId => async dispatch => {
+  const res = await axios.put('/api/cart/', {checkedOut: true, userId})
   console.log('RES:', res)
   dispatch(getCheckout(res))
 }
