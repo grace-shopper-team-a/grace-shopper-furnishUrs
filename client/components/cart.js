@@ -31,12 +31,11 @@ export class Cart extends React.Component {
                   <br />
                 </div>
                 <div>
-                  <h4>
-                    Quantity
-                    <button> - </button>
-                    1
-                    <button> + </button>
-                  </h4>
+                  Quantity
+                  <button> - </button>
+                  1
+                  <button> + </button>
+                  <button id="delete-me"> Delete </button>
                 </div>
               </div>
             </div>

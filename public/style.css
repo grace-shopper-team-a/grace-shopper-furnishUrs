@@ -121,3 +121,7 @@ Checkout Styling  */
   text-align: center;
   padding-bottom: 50px;
 }
+
+#delete-me {
+  background-color: tomato;
+}
