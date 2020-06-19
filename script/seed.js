@@ -173,6 +173,11 @@ async function seed() {
     productId: 4,
     quantity: 2
   })
+  await CartedProduct.create({
+    cartId: 1,
+    productId: 1,
+    quantity: 12
+  })
 
   // console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)

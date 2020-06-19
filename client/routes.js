@@ -43,7 +43,7 @@ class Routes extends Component {
       const cart = this.props.getCart(this.props.userId)
       if (cart) {
         console.log('CART', cart)
-        this.props.getCartedProduct(cart.id)
+        this.props.getCartedProduct(1)
         console.log('CARTED PRODUCT', this.props.cartedProduct)
       }
     }
