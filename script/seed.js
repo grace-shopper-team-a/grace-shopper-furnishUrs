@@ -2,6 +2,7 @@
 
 const db = require('../server/db')
 const {User, Cart, Product} = require('../server/db/models')
+const CartedProduct = require('../server/db/models/cartedproducts')
 
 const arrayOfProducts = [
   {
@@ -163,14 +164,19 @@ async function seed() {
   )
 
   await Cart.create({
-    products: [
-      {
-        productId: 1,
-        price: 250.0,
-        quantity: 2
-      }
-    ],
+    userId: 1,
     checkedOut: false
+  })
+
+  await CartedProduct.create({
+    cartId: 1,
+    productId: 4,
+    quantity: 2
+  })
+  await CartedProduct.create({
+    cartId: 1,
+    productId: 1,
+    quantity: 12
   })
 
   // console.log(`seeded ${users.length} users`)

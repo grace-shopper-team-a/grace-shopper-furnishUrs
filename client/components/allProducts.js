@@ -22,10 +22,10 @@ export class AllProducts extends React.Component {
       showCheckout: true
     })
   }
-
+  
   render() {
     const products = this.props.products
-    // console.log('products', products)
+    
     return (
       <div id="all-products">
         <Link to="/checkout">
@@ -49,7 +49,14 @@ export class AllProducts extends React.Component {
             </Link>
             <p> Description : {product.description}</p>
             <h3> Price : ${product.price} </h3>
-            <button id="single-product-button"> Add To Cart </button>
+            <button
+              type="submit"
+              id="single-product-button"
+              onClick={() => addToCart(product)}
+            >
+              {' '}
+              Add To Cart{' '}
+            </button>
           </div>
         ))}
       </div>
@@ -58,9 +65,10 @@ export class AllProducts extends React.Component {
 }
 
 const mapState = state => {
-  console.log('mapState', state)
+  // console.log('mapState', state)
   return {
-    products: state.allProducts
+    products: state.allProducts,
+    isLoggedIn: !!state.user.id
   }
 }
 

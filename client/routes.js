@@ -19,6 +19,8 @@ import {me} from './store'
 import ConnectedSingleProduct from './components/single-product'
 import NotFound from './components/not-found'
 import ConnectedCheckoutForm from './components/checkoutForm'
+import {fetchCart} from './store/carts'
+import {fetchCartedProduct} from './store/cartedProducts'
 
 /**
  * COMPONENT
@@ -30,6 +32,28 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
+    // console.log("PROPS",this.props)
+
+    console.log('USER ID', this.props.userId)
+    console.log('LOGGED IN', this.props.isLoggedIn)
+
+    if (!this.props.isLoggedIn) {
+      console.log('IF STATEMENT')
+      if (!window.localStorage.getItem('guest-cart')) {
+        window.localStorage.setItem(
+          'guest-cart',
+          JSON.stringify({products: [], totalPrice: 0})
+        )
+      }
+    } else {
+      console.log('ELSE STATEMENT')
+      const cart = this.props.getCart(this.props.userId)
+      if (cart) {
+        console.log('CART', cart)
+        this.props.getCartedProduct(1)
+        console.log('CARTED PRODUCT', this.props.cartedProduct)
+      }
+    }
 
     return (
       <Switch>
@@ -45,7 +69,7 @@ class Routes extends Component {
         <Route path="/drawers" component={DisplayByCatagory} />
         <Route exact path="/" component={ConnectedAllProducts} />
         <Route path="/cart" component={Cart} />
-
+        <Route exact path="/products" component={AllProducts} />
         <Route
           exact
           path="/products/:productId"
@@ -90,7 +114,9 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    userId: state.user.id,
+    cartedProduct: state.cartedProduct
   }
 }
 
@@ -98,7 +124,9 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
-    }
+    },
+    getCart: userId => dispatch(fetchCart(userId)),
+    getCartedProduct: cartId => dispatch(fetchCartedProduct(cartId))
   }
 }
 
