@@ -69,7 +69,7 @@ class Routes extends Component {
         <Route path="/drawers" component={DisplayByCatagory} />
         <Route exact path="/" component={ConnectedAllProducts} />
         <Route path="/cart" component={Cart} />
-        <Route exact path="/products" component={AllProducts} />
+        <Route exact path="/products" component={ConnectedAllProducts} />
         <Route
           exact
           path="/products/:productId"

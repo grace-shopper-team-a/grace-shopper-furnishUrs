@@ -1,20 +1,25 @@
 body {
   font-family: sans-serif;
 }
+
 a {
   text-decoration: none;
 }
+
 label {
   display: block;
 }
+
 nav a {
   display: inline-block;
   margin: 1em;
 }
+
 form div {
   margin: 1em;
   display: inline-block;
 }
+
 #all-products {
   display: flex;
   flex-direction: column;
@@ -22,6 +27,7 @@ form div {
   align-content: center;
   text-align: center;
 }
+
 #single-product {
   border: 2px solid black;
   width: 600px;
@@ -34,10 +40,12 @@ form div {
   color: white;
   padding: 10px;
 }
+
 #nav-bar {
   text-align: center;
   align-content: center;
 }
+
 /* // Drop-down Menu //  */
 .dropdown {
   position: relative;
@@ -53,6 +61,7 @@ ul {
   background-color: white;
   font-weight: bold;
   position: absolute;
+
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -88,7 +97,8 @@ li:hover {
   right: 6px;
   top: 18px;
 }
-/*
+
+/* 
 Checkout Styling  */
 #checkout-item {
   display: flex;
@@ -96,11 +106,13 @@ Checkout Styling  */
   border: 2px solid;
   margin-bottom: 10px;
 }
+
 #quantity {
   display: flex;
   flex-direction: column;
   height: 50px;
 }
+
 #shopping-cart {
   display: flex;
   flex-direction: column;
@@ -109,12 +121,7 @@ Checkout Styling  */
   text-align: center;
   padding-bottom: 50px;
 }
+
 #delete-me {
   background-color: tomato;
-}
-
-#checkout-button {
-  background-color: lightseagreen;
-  color: white;
-  padding: 10px;
 }
