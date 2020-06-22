@@ -167,6 +167,7 @@ async function seed() {
     userId: 1,
     checkedOut: false
   })
+  // .then(async cart=> {await cart.setProducts(2); console.log(await cart.getProducts())})//eslint-disable-line
 
   await CartedProduct.create({
     cartId: 1,

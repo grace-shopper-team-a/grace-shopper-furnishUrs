@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {Cart, CartedProduct} = require('../db/models')
 const axios = require('axios')
+const Product = require('../db/models/products')
 module.exports = router
 
 router.get('/:relatedUserId', async (req, res) => {
@@ -9,7 +10,8 @@ router.get('/:relatedUserId', async (req, res) => {
       where: {
         userId: req.params.relatedUserId,
         checkedOut: false
-      }
+      },
+      include: [Product]
     })
     res.json(requestedCart)
   } catch (err) {
@@ -36,7 +38,7 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
-           
+
 router.get('/:cartId', async (req, res) => {
   const cart = {products: [], totalPrice: 0}
   const productsInCart = await CartedProduct.findAll({
