@@ -26,6 +26,7 @@ function DisplayProduct(props) {
 
 function addToCart(product, userId) {
   if (!userId) {
+    console.log('add a product to local stroage')
     const productExists = {status: false, idx: null}
     const guestCart = JSON.parse(window.localStorage.getItem('guest-cart'))
 
@@ -42,6 +43,8 @@ function addToCart(product, userId) {
     } else {
       guestCart.products.push({
         productId: product.id,
+        title: product.name,
+        imageUrl: product.imageUrl,
         price: product.price,
         quantity: 1
       })

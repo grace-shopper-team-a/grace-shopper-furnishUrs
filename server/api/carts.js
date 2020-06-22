@@ -17,6 +17,7 @@ router.get('/:relatedUserId', async (req, res) => {
   }
 })
 
+// protected route //
 router.put('/', async (req, res, next) => {
   console.log('here')
   try {
@@ -36,7 +37,7 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
-           
+
 router.get('/:cartId', async (req, res) => {
   const cart = {products: [], totalPrice: 0}
   const productsInCart = await CartedProduct.findAll({
