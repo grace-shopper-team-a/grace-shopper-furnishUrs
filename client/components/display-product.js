@@ -14,11 +14,16 @@ function DisplayProduct(props) {
           paddingBottom: '10px'
         }}
       >
-        <h3>{product.name}</h3>
+        <h2>{product.name}</h2>
         <img src={product.imageUrl} rel="product-image" />
         <p>{product.description}</p>
         <p>{product.price}</p>
-        <button onClick={() => addToCart(product, userId)}>Add to Cart</button>
+        <button
+          id="single-product-button"
+          onClick={() => addToCart(product, userId)}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   )

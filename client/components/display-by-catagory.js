@@ -29,7 +29,6 @@ export class ProductByCategory extends React.Component {
               <div key={product.id} id="single-product">
                 <Link to={`/products/${product.id}`}>
                   <h1> {product.name} </h1>
-                  <p>{product.category}</p>
                   <img src={product.imageUrl} />
                 </Link>
                 <p> Description : {product.description}</p>

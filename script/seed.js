@@ -12,7 +12,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'chair',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/51347127/resize-h800-w800%5Ecompr-r85/1086/108610989/Skiles+Microfiber+21%2522+Armchair.jpg'
   },
   {
     name: 'LACK',
@@ -21,7 +21,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'chair',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/84459083/resize-h800-w800%5Ecompr-r85/1069/106945610/Barlow+21%2522+Armchair.jpg'
   },
   {
     name: 'NORDEN',
@@ -31,7 +31,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'chair',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/56937908/resize-h800-w800%5Ecompr-r85/9747/97477933/Digby+Executive+Chair.jpg'
   },
   {
     name: 'JOKKMOKK',
@@ -40,7 +40,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'bed',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/46378067/resize-h800-w800%5Ecompr-r85/1011/101152204/Rhoton+Low+Profile+Platform+Bed.jpg'
   },
   {
     name: 'LERHAMN',
@@ -49,7 +49,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'bed',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/81835184/resize-h800%5Ecompr-r85/7799/77999136/Flemington+Platform+Bed.jpg'
   },
   {
     name: 'LISABO',
@@ -59,16 +59,16 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'table',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/00220811/resize-h800-w800%5Ecompr-r85/1031/103149411/Valero+Coffee+Table+with+Storage.jpg'
   },
   {
     name: 'MALM',
     description: 'Suspendisse malesuada porta enim iaculis interdum',
     price: 120,
     quantity: 100,
-    category: 'table',
+    category: 'bed',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/38224989/resize-h800-w800%5Ecompr-r85/8683/86837264/Monarch+Hill+Ambrosia+Full+Platform+Bed.jpg'
   },
   {
     name: 'GLADOM',
@@ -78,7 +78,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'table',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/53221328/resize-h800-w800%5Ecompr-r85/9216/92166458/Beliveau+Solid+Wood+Drum+Coffee+Table.jpg'
   },
   {
     name: 'KOPPANG',
@@ -88,25 +88,25 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'table',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/67034653/resize-h800-w800%5Ecompr-r85/8403/84031718/Vazquez+Coffee+Table+with+Storage.jpg'
   },
   {
     name: 'HEMNES',
     description: 'Donec imperdiet tincidunt erat id consectetur',
     price: 150,
     quantity: 100,
-    category: 'table',
+    category: 'drawers',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/72144436/resize-h800-w800%5Ecompr-r85/1004/100456315/Cecille+Groove+6+Drawer+Double+Dresser.jpg'
   },
   {
     name: 'KULLEN',
     description: 'Maecenas vulputate ipsum felis, ut auctor purus mattis a',
     price: 180,
     quantity: 100,
-    category: 'couch',
+    category: 'drawers',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/49197987/resize-h800-w800%5Ecompr-r85/6082/60824134/Gravity+6+Drawer+Double+Dresser.jpg'
   },
   {
     name: 'KOPPANG',
@@ -115,7 +115,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'drawers',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/35554383/resize-h800-w800%5Ecompr-r85/5468/54687138/Tracey+6+Drawer+Dresser.jpg'
   },
   {
     name: 'NORDMELA',
@@ -124,7 +124,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'couch',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/37989072/resize-h800-w800%5Ecompr-r85/9216/92163587/Bel-Air+72.25%2522+Square+Arm+Sofa.jpg'
   },
   {
     name: 'LENNART',
@@ -132,9 +132,9 @@ const arrayOfProducts = [
       'Vestibulum porta, sem id auctor auctor, erat lorem tempus nunc',
     price: 85,
     quantity: 100,
-    category: 'drawers',
+    category: 'couch',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/81481235/resize-h800-w800%5Ecompr-r85/1047/104788116/Joy+77%2522+Round+Arm+Sleeper.jpg'
   },
   {
     name: 'MICKE',
@@ -143,7 +143,7 @@ const arrayOfProducts = [
     quantity: 100,
     category: 'couch',
     imageUrl:
-      'https://www.serenaandlily.com/dw/image/v2/AASD_PRD/on/demandware.static/-/Sites-masterCatalog_SerenaandLily/default/dwfea0d498/hi-res/Furn_Tucker_Chair_Natural_Oak_Angle_MV_0081_Crop_SH.jpg?sw=100&sh=125&sm=fit'
+      'https://secure.img1-fg.wfcdn.com/im/79370581/resize-h800-w800%5Ecompr-r85/1143/114355111/Sylvette+78.5%2522+Reversible+Sectional+with+Ottoman.jpg'
   }
 ]
 

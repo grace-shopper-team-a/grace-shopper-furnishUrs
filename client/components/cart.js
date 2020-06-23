@@ -4,8 +4,6 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
 
-// window.localStorage.setItem('guest-cart', JSON.stringify(guestCart))
-
 export class Cart extends React.Component {
   constructor() {
     super()
@@ -20,40 +18,12 @@ export class Cart extends React.Component {
     this.props.fetchProducts()
   }
 
-  deleteItem(productId) {
-    const deletedproductCart = this.state.guestCart.filter(product => {
-      return product.productId !== productId
-    })
-    this.setState(state => {
-      return {guestCart: deletedproductCart}
-    })
-    let total = 0
-    deletedproductCart.forEach(product => {
-      total += product.price * product.quantity
-    })
-    this.setState(state => {
-      return {totalPrice: total}
-    })
-  }
-
-  updateTotalPrice() {
-    console.log('update price', this.state)
-
-    let total = 0
-    this.state.guestCart.forEach(product => {
-      console.log('product!')
-      total += product.price * product.quantity
-    })
-    this.setState(state => {
-      return {totalPrice: total}
-    })
-  }
-
   quantityIncrease(productId) {
     this.state.guestCart.forEach(product => {
       if (product.productId === productId) product.quantity++
     })
     this.updateTotalPrice()
+    this.updatelocalStorage()
   }
 
   quantityDecrease(productId) {
@@ -62,38 +32,74 @@ export class Cart extends React.Component {
         if (product.quantity > 0) product.quantity--
     })
     this.updateTotalPrice()
+    this.updatelocalStorage()
+  }
+
+  deleteItem(productId) {
+    this.state.guestCart.forEach((product, index) => {
+      if (product.productId === productId) {
+        this.state.guestCart.splice(index, 1)
+      }
+    })
+    this.updateTotalPrice()
+    this.updatelocalStorage()
+  }
+
+  findtotal() {
+    let total = 0
+    this.state.guestCart.forEach(product => {
+      total += product.price * product.quantity
+    })
+    return total
+  }
+
+  updateTotalPrice() {
+    this.setState(state => {
+      return {totalPrice: this.findtotal()}
+    })
+  }
+
+  updatelocalStorage() {
+    const updatedCart = {
+      products: this.state.guestCart,
+      totalPrice: this.findtotal()
+    }
+    localStorage.setItem('guest-cart', JSON.stringify(updatedCart))
   }
 
   render() {
-    console.log('rendering state', this.state)
     return (
       <div>
         <div id="shopping-cart">
           <h1> Shopping Cart </h1>
           {this.state.guestCart.map(product => {
-            console.log('Each Product', product)
             return (
               <div key={product.productId} id="checkout-item">
                 <div id="checkout-img">
-                  <img src={product.imageUrl} rel="product-image" />
+                  <img
+                    id="checkout-img"
+                    src={product.imageUrl}
+                    rel="product-image"
+                  />
                 </div>
                 <div>
-                  <h1>{product.title}</h1>
+                  <h2>{product.title}</h2>
                 </div>
-                <div id="quantity">
-                  <div>
-                    <p>Price : {product.price}</p>
-                    <br />
-                  </div>
-                  <div>Quantity : {product.quantity}</div>
+
+                <div id="quantity-container">
+                  <p>Price : {product.price}</p>
+                  <br />
+                  Quantity : {product.quantity}
                   <div>
                     <button
+                      id="add-delete-button"
                       onClick={() => this.quantityDecrease(product.productId)}
                     >
                       {' '}
                       -{' '}
                     </button>
                     <button
+                      id="add-delete-button"
                       onClick={() => this.quantityIncrease(product.productId)}
                     >
                       {' '}
@@ -112,7 +118,7 @@ export class Cart extends React.Component {
             )
           })}
           <div>
-            <h1>Total : $ {this.state.totalPrice}. 00</h1>
+            <h1>Total : $ {this.state.totalPrice}.00</h1>
 
             <Link to="/checkout">
               <button id="single-product-button">BUY NOW</button>
@@ -125,7 +131,6 @@ export class Cart extends React.Component {
 }
 
 const mapState = state => {
-  console.log('mapState', state)
   return {
     products: state.allProducts
   }
