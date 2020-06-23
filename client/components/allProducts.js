@@ -25,26 +25,15 @@ export class AllProducts extends React.Component {
     })
   }
 
-  addToCart = product => {
-    this.props.addProductToCart(this.props.cart.id, product.id)
-  }
+  // addToCart = product => {
+  //   this.props.addProductToCart(this.props.cart.id, product.id)
+  // }
 
   render() {
     const products = this.props.products
 
     return (
       <div id="all-products">
-        <Link to="/checkout">
-          <button
-            type="submit"
-            id="checkout-button"
-            onClick={this.displayCheckout}
-          >
-            Checkout
-          </button>
-          {this.state.showCheckout ? <CheckoutForm /> : null}
-        </Link>
-
         <h1> Welcome to FurnishUrs! </h1>
         {products.map(product => (
           <div key={product.id} id="single-product">
@@ -58,7 +47,7 @@ export class AllProducts extends React.Component {
             <button
               type="submit"
               id="single-product-button"
-              onClick={() => this.addToCart(product)}
+              onClick={() => addToCart(product)}
             >
               {' '}
               Add To Cart{' '}

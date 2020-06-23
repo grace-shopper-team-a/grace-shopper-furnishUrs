@@ -121,13 +121,22 @@ export class Cart extends React.Component {
             <h1>Total : $ {this.state.totalPrice}.00</h1>
 
             <Link to="/checkout">
-              <button id="single-product-button">BUY NOW</button>
+              <button
+                id="single-product-button"
+                onClick={() => clearLocalStorage()}
+              >
+                BUY NOW
+              </button>
             </Link>
           </div>
         </div>
       </div>
     )
   }
+}
+
+const clearLocalStorage = () => {
+  localStorage.clear()
 }
 
 const mapState = state => {
