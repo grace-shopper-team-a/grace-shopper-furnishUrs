@@ -1,27 +1,32 @@
 import axios from 'axios'
 
 //action type
-const CHECKOUT = 'CHECKOUT'
+const UPDATE = 'UPDATE'
 
 //initial state
 const initialState = []
 
 //action creator
-const getCheckout = product => ({type: CHECKOUT, product})
+const update = product => ({type: UPDATE, product})
 
 //thunk creator
 export const updateCheckout = userId => async dispatch => {
-  const res = await axios.put('/api/cart/', {checkedOut: true, userId})
-  console.log('RES:', res)
-  dispatch(getCheckout(res))
+  try {
+    const {data} = await axios.put(`/api/carts/`, {
+      checkedOut: true,
+      id: userId
+    })
+    dispatch(update(data))
+  } catch (error) {
+    window.location = '/404'
+  }
 }
 
 //checkout reducer
 export default function checkoutReducer(state = initialState, action) {
-  console.log('action', action)
   switch (action.type) {
-    case CHECKOUT:
-      return [...state, action.user]
+    case UPDATE:
+      return [...state, action.userId]
     default:
       return state
   }
