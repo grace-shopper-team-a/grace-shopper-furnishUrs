@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
 import CheckoutForm from './checkoutForm'
+import {addToCart} from './display-product'
 
 export class AllProducts extends React.Component {
   constructor() {
@@ -78,37 +79,4 @@ const mapDispatch = dispatch => {
   }
 }
 
-function addToCart(product, userId) {
-  if (!userId) {
-    console.log('add a product to local stroage')
-    const productExists = {status: false, idx: null}
-    const guestCart = JSON.parse(window.localStorage.getItem('guest-cart'))
-
-    guestCart.products.forEach((cartProduct, idx) => {
-      if (cartProduct.productId === product.id) {
-        productExists.status = true
-        productExists.idx = idx
-      }
-    })
-
-    if (productExists.status) {
-      guestCart.products[productExists.idx].quantity++
-      guestCart.totalPrice += product.price
-    } else {
-      guestCart.products.push({
-        productId: product.id,
-        title: product.name,
-        imageUrl: product.imageUrl,
-        price: product.price,
-        quantity: 1
-      })
-      guestCart.totalPrice +=
-        guestCart.products[guestCart.products.length - 1].price
-    }
-
-    window.localStorage.setItem('guest-cart', JSON.stringify(guestCart))
-  }
-}
-
-// export default AllProducts
 export default connect(mapState, mapDispatch)(AllProducts)

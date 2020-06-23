@@ -29,9 +29,8 @@ function DisplayProduct(props) {
   )
 }
 
-function addToCart(product, userId) {
+export const addToCart = function addToCart(product, userId) {
   if (!userId) {
-    console.log('add a product to local stroage')
     const productExists = {status: false, idx: null}
     const guestCart = JSON.parse(window.localStorage.getItem('guest-cart'))
 
