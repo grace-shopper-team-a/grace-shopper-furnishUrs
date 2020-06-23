@@ -13,7 +13,8 @@ const reducer = combineReducers({
   user,
   singleProduct,
   allProducts,
-  cart
+  cart,
+  checkout
 })
 
 const middleware = composeWithDevTools(

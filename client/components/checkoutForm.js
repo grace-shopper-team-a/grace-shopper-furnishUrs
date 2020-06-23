@@ -10,11 +10,10 @@ export class CheckoutForm extends React.Component {
       name: '',
       email: '',
       address: '',
-      phoneNumber: ''
+      mobile: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.checkoutUpdate = this.checkoutUpdate.bind(this)
   }
 
   handleChange(event) {
@@ -25,65 +24,64 @@ export class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
+    this.props.updateCheckout(this.props.user.id)
+    this.props.history.push('/confirmation')
   }
-
-  checkoutUpdate() {
-    this.props.updateCheckout()
-    // alert('thank you')
-  }
-
-  // async componentDidMount() {
-  //   this.props.updateCheckout();
-  // }
 
   render() {
     return (
       <div id="checkout">
         <h1>Complete your order</h1>
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <label className="input-label">
             Name:
             <input
               type="text"
               name="name"
               onChange={this.handleChange}
               value={this.state.name}
+              required
             />
           </label>
-          <label>
+          <label className="input-label">
             Email:
             <input
               type="email"
               name="email"
               onChange={this.handleChange}
               value={this.state.email}
+              required
             />
           </label>
-          <label>
+          <label className="input-label">
             Address:
             <input
               type="text"
               name="address"
               onChange={this.handleChange}
               value={this.state.address}
+              required
             />
           </label>
-          <label>
-            Phone Number:
+          <label className="input-label">
+            Mobile #:
             <input
               type="text"
-              name="phoneNumber"
+              name="mobile"
               onChange={this.handleChange}
-              value={this.state.phoneNumber}
+              value={this.state.mobile}
+              required
             />
           </label>
-          <button
-            id="checkout-button"
-            type="submit"
-            onClick={this.checkoutUpdate}
-          >
-            Checkout Cart
-          </button>
+          <div>
+            <button
+              id="checkout-button"
+              type="submit"
+              onClick={this.updateCheckout}
+            >
+              Checkout Cart
+            </button>
+          </div>
         </form>
       </div>
     )
@@ -91,7 +89,6 @@ export class CheckoutForm extends React.Component {
 }
 
 const mapState = state => {
-  console.log('mapState', state)
   return {
     user: state.user
   }
@@ -99,7 +96,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    updateCheckout: () => dispatch(updateCheckout())
+    updateCheckout: id => dispatch(updateCheckout(id))
   }
 }
 

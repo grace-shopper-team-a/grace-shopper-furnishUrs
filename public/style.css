@@ -8,6 +8,7 @@ a {
 
 label {
   display: block;
+  padding: 10px;
 }
 
 nav a {
@@ -98,7 +99,7 @@ li:hover {
   top: 18px;
 }
 
-/* 
+/*
 Checkout Styling  */
 #checkout-item {
   display: flex;
@@ -124,4 +125,22 @@ Checkout Styling  */
 
 #delete-me {
   background-color: tomato;
+}
+
+#checkout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+}
+
+#checkout-button {
+  background-color: lightseagreen;
+  color: white;
+  padding: 10px;
+}
+
+#confirmation {
+  text-align: center;
 }

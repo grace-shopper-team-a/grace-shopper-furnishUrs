@@ -21,6 +21,7 @@ import NotFound from './components/not-found'
 import ConnectedCheckoutForm from './components/checkoutForm'
 import {fetchCart} from './store/carts'
 import {fetchCartedProduct} from './store/cartedProducts'
+import {Confirmation} from './components/Confirmation'
 
 /**
  * COMPONENT
@@ -53,6 +54,7 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route exact path="/" component={ConnectedAllProducts} />
         <Route exact path="/products" component={ConnectedAllProducts} />
         <Route path="/home" component={ConnectedAllProducts} />
         <Route path="/chair" component={DisplayByCatagory} />
@@ -60,9 +62,8 @@ class Routes extends Component {
         <Route path="/couch" component={DisplayByCatagory} />
         <Route path="/bed" component={DisplayByCatagory} />
         <Route path="/drawers" component={DisplayByCatagory} />
-        <Route exact path="/" component={ConnectedAllProducts} />
         <Route path="/cart" component={Cart} />
-        <Route exact path="/products" component={ConnectedAllProducts} />
+        {/* <Route exact path="/products" component={ConnectedAllProducts} /> */}
         <Route
           exact
           path="/products/:productId"
@@ -70,6 +71,7 @@ class Routes extends Component {
         />
         <Route path="/checkout" component={ConnectedCheckoutForm} />
         {/* <Route path="/404" component={NotFound} /> */}
+        <Route path="/confirmation" component={Confirmation} />
 
         {isLoggedIn && (
           <Switch>
@@ -84,13 +86,13 @@ class Routes extends Component {
             <Route path="/bed" component={DisplayByCatagory} />
             <Route path="/drawers" component={DisplayByCatagory} />
             <Route path="/home" component={UserHome} />
-
             <Route
               exact
               path="/products/:productId"
               component={ConnectedSingleProduct}
             />
             <Route path="/404" component={NotFound} />
+            <Route path="/confirmation" component={Confirmation} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

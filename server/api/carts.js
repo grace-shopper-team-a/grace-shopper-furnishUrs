@@ -1,7 +1,6 @@
 const router = require('express').Router()
-const {Cart, CartedProduct} = require('../db/models')
+const {Cart, CartedProduct, Product} = require('../db/models')
 const axios = require('axios')
-const Product = require('../db/models/products')
 module.exports = router
 
 router.get('/:relatedUserId', async (req, res) => {
@@ -20,20 +19,18 @@ router.get('/:relatedUserId', async (req, res) => {
 })
 
 router.put('/', async (req, res, next) => {
-  console.log('here')
   try {
-    const id = req.body.userId
+    const id = req.body.id
+    console.log('REQ.BODY', req.body)
     const currentCart = await Cart.findOne({
       where: {
         userId: id,
         checkedOut: false
       }
     })
-    if (currentCart.checkedOut === false) {
-      currentCart.checkedOut = true
-      await currentCart.save()
-    }
-    res.json(currentCart)
+    console.log('current cart:', currentCart)
+    const updatedCart = await currentCart.update({checkedOut: true})
+    res.json(updatedCart)
   } catch (error) {
     next(error)
   }
