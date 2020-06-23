@@ -10,8 +10,10 @@ export class Cart extends React.Component {
   }
 
   render() {
+    console.log('PROPS', this.props)
+
     const category = this.props.location.pathname.slice(1)
-    const products = this.props.products
+    const products = this.props.cart.products
     console.log('products', products)
     return (
       <div id="shopping-cart">
@@ -33,7 +35,7 @@ export class Cart extends React.Component {
                 <div>
                   Quantity
                   <button> - </button>
-                  1
+                  {product.cartedproducts.quantity}
                   <button> + </button>
                   <button id="delete-me"> Delete </button>
                 </div>
@@ -56,13 +58,15 @@ export class Cart extends React.Component {
 const mapState = state => {
   console.log('mapState', state)
   return {
-    products: state.allProducts
+    products: state.allProducts,
+    cart: state.cart
   }
 }
 
 const mapDispatch = dispatch => {
   return {
-    fetchProducts: () => dispatch(fetchProducts())
+    fetchProducts: () => dispatch(fetchProducts()),
+    fetchCart: userId => dispatch(fetchCart(userId))
   }
 }
 

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {Dropdown} from './drop-down-menu'
-import {Cart} from './cart'
+import {Cart} from './userCart'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="nav-bar">
