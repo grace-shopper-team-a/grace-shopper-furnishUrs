@@ -14,17 +14,22 @@ function DisplayProduct(props) {
           paddingBottom: '10px'
         }}
       >
-        <h3>{product.name}</h3>
+        <h2>{product.name}</h2>
         <img src={product.imageUrl} rel="product-image" />
         <p>{product.description}</p>
         <p>{product.price}</p>
-        <button onClick={() => addToCart(product, userId)}>Add to Cart</button>
+        <button
+          id="single-product-button"
+          onClick={() => addToCart(product, userId)}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   )
 }
 
-function addToCart(product, userId) {
+export const addToCart = function addToCart(product, userId) {
   if (!userId) {
     const productExists = {status: false, idx: null}
     const guestCart = JSON.parse(window.localStorage.getItem('guest-cart'))
@@ -42,6 +47,8 @@ function addToCart(product, userId) {
     } else {
       guestCart.products.push({
         productId: product.id,
+        title: product.name,
+        imageUrl: product.imageUrl,
         price: product.price,
         quantity: 1
       })

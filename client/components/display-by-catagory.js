@@ -1,15 +1,9 @@
-// import React from 'react'
-
-// export default function DisplayByCatagory() {
-
-//   return <h1>Catagory : Chair </h1>
-// }
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
+import {addToCart} from './display-product'
 
 export class ProductByCategory extends React.Component {
   componentDidMount() {
@@ -29,12 +23,16 @@ export class ProductByCategory extends React.Component {
               <div key={product.id} id="single-product">
                 <Link to={`/products/${product.id}`}>
                   <h1> {product.name} </h1>
-                  <p>{product.category}</p>
                   <img src={product.imageUrl} />
                 </Link>
                 <p> Description : {product.description}</p>
-                <h3> Price : ${product.price} </h3>
-                <button id="single-product-button"> Add To Cart </button>
+                <button
+                  id="single-product-button"
+                  onClick={() => addToCart(product)}
+                >
+                  {' '}
+                  Add To Cart{' '}
+                </button>
               </div>
             )
           }
@@ -47,7 +45,8 @@ export class ProductByCategory extends React.Component {
 const mapState = state => {
   console.log('mapState', state)
   return {
-    products: state.allProducts
+    products: state.allProducts,
+    isLoggedIn: !!state.user.id
   }
 }
 
@@ -57,5 +56,4 @@ const mapDispatch = dispatch => {
   }
 }
 
-// export default AllProducts
 export default connect(mapState, mapDispatch)(ProductByCategory)
