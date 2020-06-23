@@ -2,6 +2,10 @@ const router = require('express').Router()
 const {CartedProduct, Cart, Product} = require('../db/models')
 module.exports = router
 
+router.get('/', async (req, res) => {
+  res.send(await CartedProduct.findAll())
+})
+
 router.post('/', async (req, res) => {
   const currentCart = await Cart.findOne({
     where: {
@@ -26,4 +30,19 @@ router.post('/', async (req, res) => {
     ) //increments products quantity if it already exists
   }
   res.send(currentCart)
+})
+
+router.delete('/:cartId/:productId', async (req, res) => {
+  const currentCart = await Cart.findOne({
+    where: {
+      id: req.params.cartId
+    }
+  })
+  await currentCart.removeProduct(req.params.productId)
+  // console.log(await currentCart.__proto__)//eslint-disable-line
+  // await currentCart.
+  // const deletedCart = await CartedProduct.destroy({where: {productId: req.params.productId,
+  // cartId: req.params.cartId}})
+
+  // res.json(deletedCart)
 })

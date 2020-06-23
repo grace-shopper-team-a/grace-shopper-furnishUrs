@@ -2,11 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
+import {deleteProduct} from '../store/cartedProducts'
 import {Link} from 'react-router-dom'
 
 export class Cart extends React.Component {
   componentDidMount() {
     this.props.fetchProducts()
+  }
+
+  deleteProduct = (productId, cartId) => {
+    console.log('DELETE THIS', 'PRODUCT ID', productId, 'CART ID', cartId)
+    this.props.deleteProduct(productId, cartId)
   }
 
   render() {
@@ -35,9 +41,18 @@ export class Cart extends React.Component {
                 <div>
                   Quantity
                   <button> - </button>
-                  {product.cartedproducts.quantity}
+                  {/* {product.cartedproducts.qsuantity} */}
                   <button> + </button>
-                  <button id="delete-me"> Delete </button>
+                  <button
+                    id="delete-me"
+                    type="button"
+                    onClick={() =>
+                      this.deleteProduct(product.id, this.props.cart.id)
+                    }
+                  >
+                    {' '}
+                    Delete{' '}
+                  </button>
                 </div>
               </div>
             </div>
@@ -66,7 +81,9 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
-    fetchCart: userId => dispatch(fetchCart(userId))
+    fetchCart: () => dispatch(fetchCart(cartId)),
+    deleteProduct: (productId, cartId) =>
+      dispatch(deleteProduct(productId, cartId))
   }
 }
 
