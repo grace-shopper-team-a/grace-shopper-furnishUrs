@@ -10,5 +10,20 @@ router.post('/', async (req, res) => {
     }
   })
 
-  currentCart.addProducts(await Product.findByPk(req.body.productId))
+  // console.log(await currentCart.__proto__)//eslint-disable-line
+
+  if (!await currentCart.hasProduct(req.body.productId)) {
+    await currentCart.addProducts(req.body.productId) //adds product to CartedProduct Table
+    await CartedProduct.update(
+      {quantity: 1},
+      {where: {productId: req.body.productId}}
+    ) //updates Quantity Field for the product
+  } else {
+    await CartedProduct.findOne({where: {productId: req.body.productId}}).then(
+      async product => {
+        await product.update({quantity: product.quantity + 1})
+      }
+    ) //increments products quantity if it already exists
+  }
+  res.send(currentCart)
 })
