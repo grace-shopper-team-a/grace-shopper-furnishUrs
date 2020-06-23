@@ -72,6 +72,7 @@ class Routes extends Component {
         <Route path="/checkout" component={ConnectedCheckoutForm} />
         {/* <Route path="/404" component={NotFound} /> */}
         <Route path="/confirmation" component={Confirmation} />
+        <Route path="/userCart" component={Cart} />
 
         {isLoggedIn && (
           <Switch>
