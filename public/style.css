@@ -41,6 +41,11 @@ form div {
   padding: 10px;
 }
 
+#single-product-button:active {
+  transform: translateY(2px);
+  background-color: darkolivegreen;
+}
+
 #nav-bar {
   text-align: center;
   align-content: center;
@@ -105,12 +110,8 @@ Checkout Styling  */
   width: 500px;
   border: 2px solid;
   margin-bottom: 10px;
-}
-
-#quantity {
-  display: flex;
-  flex-direction: column;
-  height: 50px;
+  justify-content: space-between;
+  padding-right: 50px;
 }
 
 #shopping-cart {
@@ -124,4 +125,21 @@ Checkout Styling  */
 
 #delete-me {
   background-color: tomato;
+}
+
+#delete-me:active {
+  transform: translateY(0.5px);
+}
+
+#add-delete-button:active {
+  transform: translateY(0.5px);
+}
+
+img {
+  width: 300px;
+}
+
+#checkout-img {
+  width: 120px;
+  height: 120px;
 }

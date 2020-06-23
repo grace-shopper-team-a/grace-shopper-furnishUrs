@@ -19,6 +19,7 @@ router.get('/:relatedUserId', async (req, res) => {
   }
 })
 
+// protected route //
 router.put('/', async (req, res, next) => {
   console.log('here')
   try {

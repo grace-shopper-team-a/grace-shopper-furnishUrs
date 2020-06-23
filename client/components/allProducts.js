@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
 import CheckoutForm from './checkoutForm'
+import {addToCart} from './display-product'
 import {postCartedProduct} from '../store/cartedProducts'
 
 export class AllProducts extends React.Component {
@@ -86,5 +87,4 @@ const mapDispatch = dispatch => {
   }
 }
 
-// export default AllProducts
 export default connect(mapState, mapDispatch)(AllProducts)
