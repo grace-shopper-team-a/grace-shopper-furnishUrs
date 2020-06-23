@@ -32,10 +32,8 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-    // console.log("PROPS",this.props)
 
-    console.log('USER ID', this.props.userId)
-    console.log('LOGGED IN', this.props.isLoggedIn)
+    console.log('CART', this.props.cart)
 
     if (!this.props.isLoggedIn) {
       console.log('IF STATEMENT')
@@ -45,14 +43,9 @@ class Routes extends Component {
           JSON.stringify({products: [], totalPrice: 0})
         )
       }
-    } else {
-      console.log('ELSE STATEMENT')
-      const cart = this.props.getCart(this.props.userId)
-      if (cart) {
-        console.log('CART', cart)
-        this.props.getCartedProduct(1)
-        console.log('CARTED PRODUCT', this.props.cartedProduct)
-      }
+    } else if (isLoggedIn && !this.props.cart.id) {
+      console.log('ELSE IF STATEMENT')
+      this.props.getCart(this.props.userId)
     }
 
     return (
@@ -76,7 +69,7 @@ class Routes extends Component {
           component={ConnectedSingleProduct}
         />
         <Route path="/checkout" component={ConnectedCheckoutForm} />
-        <Route path="/404" component={NotFound} />
+        {/* <Route path="/404" component={NotFound} /> */}
 
         {isLoggedIn && (
           <Switch>
@@ -116,7 +109,7 @@ const mapState = state => {
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
     userId: state.user.id,
-    cartedProduct: state.cartedProduct
+    cart: state.cart
   }
 }
 
@@ -125,8 +118,7 @@ const mapDispatch = dispatch => {
     loadInitialData() {
       dispatch(me())
     },
-    getCart: userId => dispatch(fetchCart(userId)),
-    getCartedProduct: cartId => dispatch(fetchCartedProduct(cartId))
+    getCart: userId => dispatch(fetchCart(userId))
   }
 }
 

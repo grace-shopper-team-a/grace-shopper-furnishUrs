@@ -5,6 +5,7 @@ import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
 import CheckoutForm from './checkoutForm'
 import {addToCart} from './display-product'
+import {postCartedProduct} from '../store/cartedProducts'
 
 export class AllProducts extends React.Component {
   constructor() {
@@ -22,6 +23,10 @@ export class AllProducts extends React.Component {
     this.setState({
       showCheckout: true
     })
+  }
+
+  addToCart = product => {
+    this.props.addProductToCart(this.props.cart.id, product.id)
   }
 
   render() {
@@ -53,7 +58,7 @@ export class AllProducts extends React.Component {
             <button
               type="submit"
               id="single-product-button"
-              onClick={() => addToCart(product)}
+              onClick={() => this.addToCart(product)}
             >
               {' '}
               Add To Cart{' '}
@@ -69,13 +74,16 @@ const mapState = state => {
   // console.log('mapState', state)
   return {
     products: state.allProducts,
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    cart: state.cart
   }
 }
 
 const mapDispatch = dispatch => {
   return {
-    fetchProducts: () => dispatch(fetchProducts())
+    fetchProducts: () => dispatch(fetchProducts()),
+    addProductToCart: (cartId, productId) =>
+      dispatch(postCartedProduct(cartId, productId))
   }
 }
 
